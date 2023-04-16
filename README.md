@@ -1,3 +1,19 @@
+# art-collection 
+(my own notes)
+
+An project on practicing CRUD operations using this tech stack:
+- React
+- Redux
+- Redux thunk pattern
+- DB: SQLite uisng Knex query builder module
+- CSS: SASS
+- Architecture: component, action, reducer, api, route, db
+
+## Backlog
+- [ ] As a user, I want to add any image, and adding gets a square section of image if not a square
+- [ ] As a user, I want to be able to update the art title and summary
+
+
 # Fullstack Collection App
 
 This repo is designed to provide space to code a fullstack app. It contains node modules and folders for databases, routes, api requests, react components, and redux actions and creators. Let's get going!
