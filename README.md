@@ -1,17 +1,21 @@
 # art-collection 
-(my own notes)
-
 An project on practicing CRUD operations using this tech stack:
+- TS
 - React
 - Redux
 - Redux thunk pattern
 - DB: SQLite uisng Knex query builder module
 - CSS: SASS
-- Architecture: component, action, reducer, api, route, db
+- Architecture: component, action (with thunk action), reducer, api, route, db
+- Jest testing
 
 ## Backlog
 - [ ] As a user, I want to add any image, and adding gets a square section of image if not a square
-- [ ] As a user, I want to be able to update the art title and summary
+- [ ] As a user, I want to be able to update the art title, text and image
+- [ ] As a developer, I want to test routes
+- [ ] As a developer, I want to test the api clients
+- [ ] As a developer, I want to test the db routes
+- [ ] As a developer, I want to test redux actions and reducers
 
 ------- And below is the default README from [my-fullstack-collection-scss](https://github.com/dev-academy-challenges/challenges/tree/main/packages/my-fullstack-collection-scss)
 
