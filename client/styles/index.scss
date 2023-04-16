@@ -1,0 +1,92 @@
+// // Import only what you need from Bulma
+// Need this one for the mini-css-extract-plugin
+@import "bulma/sass/utilities/_all.sass";
+//@import "bulma/sass/base/_all.sass";
+ // Disable button styles which is turquioise background
+//@import "bulma/sass/elements/button.sass";
+@import "bulma/sass/elements/container.sass";
+//@import "bulma/sass/elements/title.sass";
+//@import "bulma/sass/form/_all.sass";
+@import "bulma/sass/components/navbar.sass";
+//@import "bulma/sass/layout/hero.sass";
+//@import "bulma/sass/layout/section.sass";
+
+
+body {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 20px;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+  text-align: center;
+  padding: 0 0 1em 0;
+
+  h1 {
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: 5em;
+    margin: 0.5em;
+  }
+}
+
+h3 {
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+button, label {
+  margin: 0 0 0 1em;
+}
+
+.app-container {
+  border: 1px solid silver;
+  margin: auto;
+  //width: 100%;
+  // padding: 10px;
+}
+
+// ART
+.art-image {
+  width: 20em;
+}
+
+/* Flex container has flex items children  */
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container-item {
+  flex-direction: column;
+  flex: 1; /* makes columns equal */
+  padding: 1em;
+  text-decoration: none;
+  color: inherit;
+}
+
+// .menu-item {
+//   flex-direction: row;
+//   flex: 1; /* makes columns equal */
+//   padding: 1em
+// }
+
+.nav-item {
+  margin: 1em;
+}
+
+.center {
+  text-align: center;
+}
+
+.one-art {
+  padding: 0 0 3em 0;
+}
+
+// NEW
+// Keyboard navigation
+a:focus {
+  background-color: yellow;
+}
