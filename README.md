@@ -13,6 +13,8 @@ An project on practicing CRUD operations using this tech stack:
 - [ ] As a user, I want to add any image, and adding gets a square section of image if not a square
 - [ ] As a user, I want to be able to update the art title and summary
 
+------- And below is the default README from [my-fullstack-collection-scss](https://github.com/dev-academy-challenges/challenges/tree/main/packages/my-fullstack-collection-scss)
+
 
 # Fullstack Collection App
 
