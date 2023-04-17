@@ -18,8 +18,10 @@ function ArtList () {
   return (
     <div className='container'>
       {artList && artList.map(oneArt =>{
+        
           // #1 way putting all the props into an 'art' object
           // return <Link to={`/${oneArt.id}`} className='container-item' key={oneArt.id}><SingleArt art={oneArt} /></Link>
+
           // #2 way putting the props individually in the spread operator
           // TAB INDEX: add for a specific order tabIndex={oneArt.id} - this is bad practice here as link is already focusable
           return <Link to={`/${oneArt.id}`} className='container-item' key={oneArt.id} ><SingleArt {...oneArt} /></Link>

@@ -9,9 +9,10 @@ An project on practicing CRUD operations using this tech stack:
 - Architecture: component, action (with thunk action), reducer, api, route, db
 - Jest testing
 
-## Backlog
-- [ ] As a user, I want to add any image, and adding gets a square section of image if not a square
+## TODO
 - [ ] As a user, I want to be able to update the art title, text and image
+- [ ] As a user, I want prefilled form input when I edit an art
+- [ ] As a user, I want to add any image, and adding gets a square section of image if not a square
 - [ ] As a developer, I want to test routes
 - [ ] As a developer, I want to test the api clients
 - [ ] As a developer, I want to test the db routes
