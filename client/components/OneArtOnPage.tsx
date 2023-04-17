@@ -31,10 +31,11 @@ function OneArt () {
     navigate('/')
   }
 
+  // having the || '' here is what enabled the <input> value and placeholder properties to work
   const [formData, setFormData] = useState({
-    title: '',
-    text: '',
-    image: ''
+    title: theOneArt?.title || '',
+    text: theOneArt?.text || '',
+    image: theOneArt?.image || ''
   })
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +56,7 @@ function OneArt () {
         <img className='art-image' src={theOneArt?.image} alt='square of art' />
         <form className='center' onSubmit={()=> {handleSubmit()}}>
           <label htmlFor='title'>Title: </label>
-          <input type='text' name='title' defaultValue={formData.title} onChange={handleChange} />
+          <input type='text' name='title' placeholder={formData.title} onChange={handleChange} />
 
           <label htmlFor='text'>  Text: </label>
           <input type='text' name='text' value={formData.text} onChange={handleChange} />
