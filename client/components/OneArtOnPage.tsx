@@ -38,7 +38,7 @@ function OneArt () {
     image: theOneArt?.image || ''
   })
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
     // Adds form properties
     // setFormData({
     //   ...formData,
@@ -59,7 +59,7 @@ function OneArt () {
           <input type='text' name='title' placeholder={formData.title} onChange={handleChange} />
 
           <label htmlFor='text'>  Text: </label>
-          <input type='text' name='text' value={formData.text} onChange={handleChange} />
+          <textarea name='text' value={formData.text} onChange={handleChange} />
 
           <label htmlFor='image'>  Image link: </label>
           <input type='text' name='image' value={formData.image} onChange={handleChange} />
