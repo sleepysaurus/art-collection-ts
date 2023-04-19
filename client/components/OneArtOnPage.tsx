@@ -54,7 +54,7 @@ function OneArt () {
           <h3>{theOneArt?.title}</h3>
           <p>{theOneArt?.text}</p>
         <img className='art-image' src={theOneArt?.image} alt='square of art' />
-        <form className='center' onSubmit={()=> {handleSubmit()}}>
+        <form className='' onSubmit={()=> {handleSubmit()}}>
           <label htmlFor='title'>Title: </label>
           <input type='text' name='title' placeholder={formData.title} onChange={handleChange} />
 
@@ -68,16 +68,6 @@ function OneArt () {
         </form>
       </div>
       }
-      {/* { art && <div className='center one-art'>
-        <div>
-          <h3>{theOneArt?.title}</h3>
-          <p>{theOneArt?.text}</p>
-        </div>
-        <img className='art-image' src={theOneArt?.image} alt='square of art' />
-        <br/>
-        <button onClick={()=>handleClick(id)}>Delete</button>
-      </div>
-      } */}
     </>
   )
 }

@@ -1,16 +1,8 @@
 // // Import only what you need from Bulma
 // Need this one for the mini-css-extract-plugin
 @import "bulma/sass/utilities/_all.sass";
-//@import "bulma/sass/base/_all.sass";
- // Disable button styles which is turquioise background
-//@import "bulma/sass/elements/button.sass";
 @import "bulma/sass/elements/container.sass";
-//@import "bulma/sass/elements/title.sass";
-//@import "bulma/sass/form/_all.sass";
 @import "bulma/sass/components/navbar.sass";
-//@import "bulma/sass/layout/hero.sass";
-//@import "bulma/sass/layout/section.sass";
-
 
 body {
   top: 0;
@@ -86,8 +78,13 @@ button, label {
   padding: 0 0 3em 0;
 }
 
-// NEW
 // Keyboard navigation
 a:focus {
   background-color: yellow;
 }
+
+// FORM
+// .art-form {
+//   display: flex;
+//   align-items: center
+// }
