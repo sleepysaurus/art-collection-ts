@@ -20,6 +20,10 @@ header {
     font-family: 'Lovers Quarrel', cursive;
     font-size: 5em;
     margin: 0.5em;
+    
+    a {
+      text-decoration: none;
+    }
   }
 }
 
@@ -106,4 +110,8 @@ a:focus {
 
 .form-row > input {
   margin-left: 1em;
+}
+
+.text-area-font {
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif; // text area is plain text without this
 }

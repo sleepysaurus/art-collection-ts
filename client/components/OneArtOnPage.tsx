@@ -59,7 +59,7 @@ function OneArt () {
           <input type='text' name='title' placeholder={formData.title} onChange={handleChange} />
 
           <label htmlFor='text'>  Text: </label>
-          <textarea name='text' value={formData.text} onChange={handleChange} />
+          <textarea className='text-area-font' name='text' value={formData.text} onChange={handleChange} />
 
           <label htmlFor='image'>  Image link: </label>
           <input type='text' name='image' value={formData.image} onChange={handleChange} />
