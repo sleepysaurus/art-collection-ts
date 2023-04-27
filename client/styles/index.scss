@@ -27,6 +27,12 @@ header {
   }
 }
 
+// SHARED STYLING
+
+.center {
+  text-align: center;
+}
+
 h3 {
   font-weight: 800;
   margin: 10px 0;
@@ -47,8 +53,31 @@ button, label {
 .art-image {
   width: 20em;
   height: 20em;
+  padding: 1em 0;
 }
 
+// remove
+// .one-art {
+//   padding: 0 0 3em 0;
+// }
+
+// NAV
+.nav-item {
+  margin: 1em;
+}
+
+// Without Bulma
+// .menu-item {
+//   flex-direction: row;
+//   flex: 1; /* makes columns equal */
+//   padding: 1em
+// }
+
+
+// Keyboard navigation
+a:focus {
+  background-color: yellow;
+}
 
 // ALL ITEMS CONTAINER
 /* Flex container has flex items children  */
@@ -66,29 +95,6 @@ button, label {
   color: inherit;
 }
 
-// .menu-item {
-//   flex-direction: row;
-//   flex: 1; /* makes columns equal */
-//   padding: 1em
-// }
-
-.nav-item {
-  margin: 1em;
-}
-
-.center {
-  text-align: center;
-}
-
-.one-art {
-  padding: 0 0 3em 0;
-}
-
-// Keyboard navigation
-a:focus {
-  background-color: yellow;
-}
-
 // FORM CONTAINER
 .form-container {
   display: flex;
@@ -101,14 +107,14 @@ a:focus {
   display: flex;
   flex: 1;
   justify-content: flex-end;
-  padding: 0.5em;
+  padding: 0.5em 0;
 }
 
 .form-row > label {
   flex: 1;
 }
 
-.form-row > input {
+.form-row > input, textarea {
   margin-left: 1em;
 }
 

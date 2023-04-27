@@ -50,21 +50,31 @@ function OneArt () {
 
   return (
     <>
-      { art && <div className='center one-art'>
+      { art && <div className='form-container'>
           <h3>{theOneArt?.title}</h3>
           <p>{theOneArt?.text}</p>
         <img className='art-image' src={theOneArt?.image} alt='square of art' />
-        <form className='' onSubmit={()=> {handleSubmit()}}>
-          <label htmlFor='title'>Title: </label>
-          <input type='text' name='title' placeholder={formData.title} onChange={handleChange} />
+        <form onSubmit={()=> {handleSubmit()}}>
 
-          <label htmlFor='text'>  Text: </label>
-          <textarea className='text-area-font' name='text' value={formData.text} onChange={handleChange} />
+          <div className='form-row'>
+            <label htmlFor='title'>Title:</label>
+            <input type='text' name='title' placeholder={formData.title} onChange={handleChange} />
+          </div>
+          
+          <div className='form-row'>
+            <label htmlFor='text'>Text:</label>
+            <textarea className='text-area-font' name='text' value={formData.text} onChange={handleChange} />
+          </div>
+          
+          <div className='form-row'>
+            <label htmlFor='image'>Image link:</label>
+            <input type='text' name='image' value={formData.image} onChange={handleChange} />
+          </div>
 
-          <label htmlFor='image'>  Image link: </label>
-          <input type='text' name='image' value={formData.image} onChange={handleChange} />
-
-          <button onClick={()=>handleClick(id)}>Delete</button>
+          <div className='form-row'>
+            <button onClick={()=>handleClick(id)}>Delete</button>
+          </div>
+          
         </form>
       </div>
       }

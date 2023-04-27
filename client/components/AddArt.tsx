@@ -36,15 +36,15 @@ function AddArt () {
       <h3 className='form-row'>Add art</h3>
       <form onSubmit={()=> {handleSubmit()}}>
         <div className='form-row'>
-          <label htmlFor='title'>Title: </label>
+          <label htmlFor='title'>Title:</label>
           <input type='text' name='title' onChange={handleChange} />
         </div>
         <div className='form-row'>
-          <label htmlFor='text'>  Text: </label>
+          <label htmlFor='text'>Text:</label>
           <input type='text' name='text' onChange={handleChange} />
         </div>
         <div className='form-row'>
-          <label htmlFor='image'>  Image link: </label>
+          <label htmlFor='image'>Image link:</label>
           <input type='text' name='image' onChange={handleChange} />
         </div>
         <div className='form-row'>
