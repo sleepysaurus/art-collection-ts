@@ -4,38 +4,38 @@ import { getAllArt, getOneArt, postOneArt, patchOneArt, deleteOneArt } from '../
 
 export const SHOW_ALL_ART = 'SHOW_ALL_ART'
 export const SHOW_ONE_ART = 'SHOW_ONE_ART'
-export const SAVE_ART = 'SAVE_ART'
+export const ADD_ART = 'ADD_ART'
 export const UPDATE_ART = 'UPDATE_ART'
-export const DELETE_ONE_ART = 'DELETE_ONE_ART'
+export const DELETE_ART = 'DELETE_ONE_ART'
 
 
 // ACTION TYPES
 export type ArtAction = 
-| { type: typeof SHOW_ALL_ART; payload: Art}
-| { type: typeof SHOW_ONE_ART; payload: Art}
-| { type: typeof SAVE_ART; payload: DBArt}
+| { type: typeof SHOW_ALL_ART; payload: Art[]}
+| { type: typeof SHOW_ONE_ART; payload: Art[]}
+| { type: typeof ADD_ART; payload: DBArt}
 | { type: typeof UPDATE_ART; payload: DBArt}
-| { type: typeof DELETE_ONE_ART; payload: number}
+| { type: typeof DELETE_ART; payload: number}
 
 
 // ACTION CREATORS
-export function showAllArt(art: Art): ArtAction{
+export function showAllArt(art: Art[]): ArtAction{
   return {
     type: SHOW_ALL_ART,
     payload: art
   }
 }
 
-export function showOneArt(art: Art): ArtAction{
+export function showOneArt(art: Art[]): ArtAction{
   return {
     type: SHOW_ONE_ART,
     payload: art
   }
 }
 
-export function saveArt(art: DBArt): ArtAction{
+export function addArt(art: DBArt): ArtAction{
   return {
-    type: SAVE_ART,
+    type: ADD_ART,
     payload: art
   }
 }
@@ -49,7 +49,7 @@ export function updateArt(art: DBArt): ArtAction{
 
 export function deleteArt(id: number): ArtAction{
   return {
-    type: DELETE_ONE_ART,
+    type: DELETE_ART,
     payload: Number(id)
   }
 }
@@ -87,7 +87,7 @@ export function saveArtThunk(art: DBArt) : ThunkAction {
     postOneArt(art)
       .then(()=>{
         // Save art will show added art
-        dispatch(saveArt(art))
+        dispatch(addArt(art))
       })
       .catch((err) => {
         console.log(err.message)
@@ -96,9 +96,9 @@ export function saveArtThunk(art: DBArt) : ThunkAction {
 }
 
 // UPDATE: one art
-export function updateArtThunk(id: number, art: DBArt) : ThunkAction {
+export function updateArtThunk(art: DBArt) : ThunkAction {
   return (dispatch) => {
-    patchOneArt(id, art)
+    patchOneArt(art)
       .then(()=>{
         dispatch(updateArt(art))
       })

@@ -17,12 +17,12 @@ function OneArt () {
     dispatch(getOneArtThunk(id))
   }, [dispatch, id])
 
-  const handleUpdate = (id: number) => {
+  const handleUpdate = () => {
     //e.preventDefault() // Used stop page reload to check redux action
-    dispatch(updateArtThunk(id, formData))
+    dispatch(updateArtThunk(formData))
 
     // Go to home and refresh home to get art collection from DB
-    //navigate('/')
+    navigate('/')
     //navigate(0)
   }
 
@@ -33,6 +33,7 @@ function OneArt () {
 
   // having the || '' here is what enabled the <input> value and placeholder properties to work
   const [formData, setFormData] = useState({
+    id: id,
     title: theOneArt?.title || '',
     text: theOneArt?.text || '',
     image: theOneArt?.image || ''
@@ -53,7 +54,7 @@ function OneArt () {
       { art && <div className='form-container'>
         <h3 className='form-row'>Edit art</h3>
         <img className='art-image' src={theOneArt?.image} alt='square of art' />
-        <form onSubmit={()=> {handleUpdate(id)}}>
+        <form onSubmit={()=> {handleUpdate()}}>
 
           <div className='form-row'>
             <label htmlFor='title'>Title:</label>
@@ -71,7 +72,7 @@ function OneArt () {
           </div>
 
           <div className='form-row'>
-            <button onClick={()=>handleUpdate(id)}>update</button>
+            <button onClick={()=>handleUpdate()}>update</button>
             <button onClick={()=>handleDelete(id)}>delete</button>
           </div>
           

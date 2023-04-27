@@ -7,8 +7,6 @@ import art from './routes/artRoutes'
 // matches to module.exports = router in artRoutes 
 //const art = require('./routes/artRoutes')
 
-
-
 const server = express()
 
 server.use(express.json())

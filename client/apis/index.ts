@@ -39,7 +39,7 @@ export function postOneArt(art: DBArt) {
 }
 
 // PATCH an art
-export function patchOneArt(id: number, art: DBArt) {
+export function patchOneArt(art: DBArt) {
   return request.patch(artUrl)
     .send(art)
     .then((res) => {

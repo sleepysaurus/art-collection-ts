@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { selectAllArt, selectOneArt, deleteArtwork, insertArt} from '../db/artDb'
+import { selectAllArt, selectOneArt, insertArt, updateArt, deleteArt, } from '../db/artDb'
 
 const router = express.Router()
 
@@ -29,11 +29,26 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// DELETE one art
+// POST art
+// /api/v1/art
+router.post('/', (req, res) => {
+  const art = req.body
+  insertArt(art)
+    .then((art) => {
+      res.json(art)
+    })
+    .catch((err) => {
+      console.log(err.message)
+    })
+})
+
+// PATCH art
 // /api/v1/art/:id
-router.delete('/:id', (req, res) => {
-  const id = Number(req.params.id)
-  deleteArtwork(id)
+router.patch('/', (req, res) => {
+  const art = req.body
+  console.log('backend art', art)
+  
+  updateArt(art)
     .then(() => {
       return res.sendStatus(200)
     })
@@ -42,13 +57,13 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-// POST an art
-// /api/v1/art
-router.post('/', (req, res) => {
-  const art = req.body
-  insertArt(art)
-    .then((art) => {
-      res.json(art)
+// DELETE art
+// /api/v1/art/:id
+router.delete('/:id', (req, res) => {
+  const id = Number(req.params.id)
+  deleteArt(id)
+    .then(() => {
+      return res.sendStatus(200)
     })
     .catch((err) => {
       console.log(err.message)
