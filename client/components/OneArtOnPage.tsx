@@ -2,7 +2,7 @@ import { useEffect, useState, ChangeEvent } from 'react'
 import { useAppDispatch, useAppSelector} from '../hooks/redux'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { getOneArtThunk, removeArt, saveArtThunk } from '../actions/art'
+import { getOneArtThunk, removeArt, updateArtThunk } from '../actions/art'
 import { DBArt } from '../../common/art'
 
 function OneArt () {
@@ -17,16 +17,16 @@ function OneArt () {
     dispatch(getOneArtThunk(id))
   }, [dispatch, id])
 
-  const handleSubmit = () => {
+  const handleUpdate = (id: number) => {
     //e.preventDefault() // Used stop page reload to check redux action
-    dispatch(saveArtThunk(formData))
+    dispatch(updateArtThunk(id, formData))
 
     // Go to home and refresh home to get art collection from DB
     //navigate('/')
     //navigate(0)
   }
 
-  const handleClick = (id:number) => {
+  const handleDelete = (id:number) => {
     dispatch(removeArt(id))
     navigate('/')
   }
@@ -51,14 +51,13 @@ function OneArt () {
   return (
     <>
       { art && <div className='form-container'>
-          <h3 className='form-row'>{theOneArt?.title}</h3>
-          <p>{theOneArt?.text}</p>
+        <h3 className='form-row'>Edit art</h3>
         <img className='art-image' src={theOneArt?.image} alt='square of art' />
-        <form onSubmit={()=> {handleSubmit()}}>
+        <form onSubmit={()=> {handleUpdate(id)}}>
 
           <div className='form-row'>
             <label htmlFor='title'>Title:</label>
-            <input type='text' name='title' placeholder={formData.title} onChange={handleChange} />
+            <input type='text' name='title' value={formData.title} onChange={handleChange} />
           </div>
 
           <div className='form-row'>
@@ -72,7 +71,8 @@ function OneArt () {
           </div>
 
           <div className='form-row'>
-            <button onClick={()=>handleClick(id)}>Delete</button>
+            <button onClick={()=>handleUpdate(id)}>update</button>
+            <button onClick={()=>handleDelete(id)}>delete</button>
           </div>
           
         </form>
