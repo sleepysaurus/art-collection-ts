@@ -51,7 +51,7 @@ function OneArt () {
   return (
     <>
       { art && <div className='form-container'>
-          <h3>{theOneArt?.title}</h3>
+          <h3 className='form-row'>{theOneArt?.title}</h3>
           <p>{theOneArt?.text}</p>
         <img className='art-image' src={theOneArt?.image} alt='square of art' />
         <form onSubmit={()=> {handleSubmit()}}>
@@ -60,10 +60,10 @@ function OneArt () {
             <label htmlFor='title'>Title:</label>
             <input type='text' name='title' placeholder={formData.title} onChange={handleChange} />
           </div>
-          
+
           <div className='form-row'>
             <label htmlFor='text'>Text:</label>
-            <textarea className='text-area-font' name='text' value={formData.text} onChange={handleChange} />
+            <input name='text' value={formData.text} onChange={handleChange} />
           </div>
           
           <div className='form-row'>
