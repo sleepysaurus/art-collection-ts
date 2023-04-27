@@ -12,7 +12,7 @@ An project on practicing CRUD operations using this tech stack:
 ## TODO
 - [x] As a user, I want to be able to update the art title, text and image
 - [x] As a user, I want prefilled form input when I edit an art
-- [ ] As a user, I want to add any image, and adding gets a square section of image if not a square
+- [x] As a user, I want to add any image, and adding gets a square section of image if not a square
 - [ ] As a developer, I want to test routes
 - [ ] As a developer, I want to test the api clients
 - [ ] As a developer, I want to test the db routes
