@@ -13,7 +13,7 @@ const artCollection = (state = [] as DBArt[], action: ArtAction) => {
     case SHOW_ONE_ART:
       return state
     case UPDATE_ART:
-      return state // fix
+      return state
     case DELETE_ART:
       return state.filter(art => art.id !== payload)
     default:
