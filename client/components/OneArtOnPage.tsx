@@ -54,6 +54,7 @@ function OneArt () {
       { art && <div className='form-container'>
         <h3 className='form-row'>Edit art</h3>
         <img className='art-image' src={theOneArt?.image} alt='square of art' />
+        
         <form onSubmit={()=> {handleUpdate()}}>
 
           <div className='form-row'>

@@ -28,7 +28,6 @@ header {
 }
 
 // SHARED STYLING
-
 .center {
   text-align: center;
 }
@@ -45,8 +44,6 @@ button {
 .app-border {
   border: 1px solid silver;
   margin: auto;
-  //width: 100%;
-  // padding: 10px;
 }
 
 // ART
@@ -54,12 +51,8 @@ button {
   width: 20em;
   height: 20em;
   padding: 1em 0;
+  object-fit: contain;  // keeps the image ratio, but to fit in our box
 }
-
-// remove
-// .one-art {
-//   padding: 0 0 3em 0;
-// }
 
 // NAV
 .nav-item {
@@ -89,7 +82,7 @@ a:focus {
 
 .container-item {
   flex-direction: column;
-  flex: 1; /* makes columns equal */
+  flex: 1; // makes columns equal
   padding: 1em;
   text-decoration: none;
   color: inherit;

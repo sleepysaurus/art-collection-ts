@@ -46,7 +46,6 @@ router.post('/', (req, res) => {
 // /api/v1/art/:id
 router.patch('/', (req, res) => {
   const art = req.body
-  console.log('backend art', art)
   
   updateArt(art)
     .then(() => {

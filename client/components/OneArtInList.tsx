@@ -17,7 +17,9 @@ function SingleArt (props: DBArt) {
     <div>
       <h3>{title}</h3>
       <p>{text}</p>
+
       <img className='art-image' src={image} alt='square of art' />
+
     </div>
   )
 }
