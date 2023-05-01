@@ -4,10 +4,12 @@ An project on practicing CRUD operations using this tech stack:
 - React
 - Redux
 - Redux thunk pattern
+- Vite
+- Tests: Vitest
 - DB: SQLite uisng Knex query builder module
 - CSS: SASS
 - Architecture: component, action (with thunk action), reducer, api, route, db
-- Jest testing
+
 
 ## TODO
 - [x] As a user, I want to be able to update the art title, text and image
