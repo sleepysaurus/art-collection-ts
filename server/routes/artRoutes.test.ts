@@ -117,7 +117,7 @@ describe('creating an art', () => {
 
 // PATCH art
 // /api/v1/art/:id
-describe('creating an art', () => {
+describe('updating an art', () => {
   it('updates an art', async() => {
     vi.mocked(updateArt).mockResolvedValue(1)
 
@@ -130,8 +130,30 @@ describe('creating an art', () => {
   it('responds with a 500', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => {})
 
-    vi.mocked(insertArt).mockRejectedValue(new Error())
-    const result = await request(server).get(api)
+    vi.mocked(updateArt).mockRejectedValue(new Error())
+    const result = await request(server).patch(api)
+    expect(result.statusCode).toBe(500)
+  })
+})
+
+// DELETE art
+// /api/v1/art/:id
+describe('deleting an art', () => {
+  it('deletes an art from the database', async() => {
+    vi.mocked(deleteArt).mockResolvedValue(1)
+
+    const result = await request(server).delete(api.concat('/3'))
+
+    expect(result.statusCode).toBe(200)
+    expect(result.body).toEqual({})
+    expect(deleteArt).toHaveBeenCalledWith(3)
+  })
+
+  it('responds with a 500', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    vi.mocked(deleteArt).mockRejectedValue(new Error())
+    const result = await request(server).delete(api.concat('/3'))
     expect(result.statusCode).toBe(500)
   })
 })
