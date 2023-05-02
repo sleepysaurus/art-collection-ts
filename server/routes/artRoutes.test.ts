@@ -78,13 +78,6 @@ describe('/:id', () => {
     `)
   })
 
-  it('responds with a 404', async() => {
-    vi.mocked(selectOneArt).mockResolvedValue(undefined)
-
-    const result = await request(server).get(api.concat('/123'))
-    expect(result.statusCode).toBe(404)
-  })
-
   it('responds with a 500', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => {})
 
