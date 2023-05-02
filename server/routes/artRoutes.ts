@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message)
+      res.sendStatus(500)
     })
 })
 
@@ -39,11 +40,12 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const art = req.body
   insertArt(art)
-    .then((art) => {
-      res.json(art)
+    .then((id) => {
+      return res.json(id)
     })
     .catch((err) => {
       console.log(err.message)
+      res.sendStatus(500)
     })
 })
 
@@ -58,6 +60,7 @@ router.patch('/', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message)
+      res.sendStatus(500)
     })
 })
 
@@ -71,6 +74,7 @@ router.delete('/:id', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message)
+      res.sendStatus(500)
     })
 })
 
