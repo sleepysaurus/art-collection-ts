@@ -14,7 +14,13 @@ beforeEach(() => {
 // CONSTANTS
 const api = '/api/v1/art'
 
-const stub = [
+const stubNewArt = {
+  title: 'Sunbird', 
+  text: 'Summer',  
+  image: 'https://cdn.testsite.com/images/summer.jpg' 
+}
+
+const stubGetAll = [
   { 
     id: 1, 
     title: 'Rose', 
@@ -35,9 +41,11 @@ const stub = [
   }
 ]
 
+// GET all art
+// /api/v1/art
 describe('/', () => {
   it('responds with the list of art', async() => {
-    vi.mocked(selectAllArt).mockResolvedValue(stub)
+    vi.mocked(selectAllArt).mockResolvedValue(stubGetAll)
 
     const result = await request(server).get(api)
     expect(result.body).toHaveLength(3)
@@ -52,9 +60,12 @@ describe('/', () => {
   })
 })
 
+
+// GET one art
+// /api/v1/art/:id
 describe('/:id', () => {
   it('responds with a specific art', async() => {
-    vi.mocked(selectOneArt).mockResolvedValue(stub[1])
+    vi.mocked(selectOneArt).mockResolvedValue(stubGetAll[1])
 
     const result = await request(server).get(api.concat('/2'))
     expect(result.body).toMatchInlineSnapshot(`
@@ -70,7 +81,28 @@ describe('/:id', () => {
   it('responds with a 404', async() => {
     vi.mocked(selectOneArt).mockResolvedValue(undefined)
 
-    const result = await request(server).get(api.concat('/50'))
+    const result = await request(server).get(api.concat('/123'))
     expect(result.statusCode).toBe(404)
+  })
+
+  it('responds with a 500', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    vi.mocked(selectOneArt).mockRejectedValue(new Error())
+    const result = await request(server).get(api.concat('/123'))
+    expect(result.statusCode).toBe(500)
+  })
+})
+
+// POST art
+// /api/v1/art
+describe('creating an art', () => {
+  it('adds an art to the database', async() => {
+    vi.mocked(insertArt).mockResolvedValue(4) //id 4
+
+    const result = await request(server).post(api).send(stubNewArt)
+
+    expect(result.statusCode).toBe(200)
+    expect(result.body).toEqual(4)
   })
 })
