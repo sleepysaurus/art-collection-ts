@@ -105,4 +105,33 @@ describe('creating an art', () => {
     expect(result.statusCode).toBe(200)
     expect(result.body).toEqual(4)
   })
+
+  it('responds with a 500', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    vi.mocked(insertArt).mockRejectedValue(new Error())
+    const result = await request(server).get(api)
+    expect(result.statusCode).toBe(500)
+  })
+})
+
+// PATCH art
+// /api/v1/art/:id
+describe('creating an art', () => {
+  it('updates an art', async() => {
+    vi.mocked(updateArt).mockResolvedValue(1)
+
+    const result = await request(server).patch(api)
+
+    expect(result.statusCode).toBe(200)
+    expect(result.body).toEqual({})
+  })
+
+  it('responds with a 500', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    vi.mocked(insertArt).mockRejectedValue(new Error())
+    const result = await request(server).get(api)
+    expect(result.statusCode).toBe(500)
+  })
 })
