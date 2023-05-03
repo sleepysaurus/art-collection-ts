@@ -4,7 +4,7 @@ import request from 'supertest'
 
 import server from '../server'
 import { selectAllArt, selectOneArt, insertArt, updateArt, deleteArt, } from '../db/artDb'
-import { mockNewArtData, mockArtData } from '../../common/artData'
+import { mockNewArtData, mockArtData } from '../../common/mockArtData'
 
 vi.mock('../db/artDb')
 

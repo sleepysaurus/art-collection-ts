@@ -4,8 +4,7 @@ import matchers from '@testing-library/jest-dom/matchers'
 import nock from 'nock'
 
 import * as api from './art'
-import { mockNewArtData, mockArtData, mockUpdateArtData } from '../../common/artData'
-
+import { mockNewArtData, mockArtData, mockUpdateArtData } from '../../common/mockArtData'
 
 expect.extend(matchers)
 afterEach(cleanup)
@@ -14,8 +13,7 @@ const localHost = 'http://localhost'
 const apiPath = '/api/v1/art/'
 
 // GET all art
-// /api/v1/art/
-describe('all', () => {
+describe('GET all', () => {
   it('gets the list of all the art', async () => {
     const scope = nock(localHost)
       .get(apiPath)
@@ -40,8 +38,7 @@ describe('all', () => {
 })
 
 // GET one art
-// /api/v1/art
-describe('get one art', () => {
+describe('GET one art', () => {
   it('gets data for one art by id', async () => {
     const scope = nock(localHost)
       .get(apiPath.concat('1'))
@@ -54,9 +51,8 @@ describe('get one art', () => {
 })
 
 // POST an art
-// /api/v1/art
-describe('adds an art', () => {
-  it('adds data for one art', async () => {
+describe('POST', () => {
+  it('adds one art', async () => {
     const scope = nock(localHost)
       .post(apiPath)
       .reply(200, { id: 4})
@@ -68,8 +64,7 @@ describe('adds an art', () => {
 })
 
 // PATCH an art
-// /api/v1/art
-describe('updating an art', () => {
+describe('PATCH an art', () => {
   it('updates the values of one art', async () => {
     const scope = nock(localHost)
       .patch(apiPath)
@@ -91,3 +86,16 @@ describe('updating an art', () => {
     expect(scope.isDone()).toBeTruthy()
   })
 })
+
+// // DELETE an art
+// describe('DELETE an art', () => {
+//   it('removes an art from the list of all art', async () => {
+//     const scope = nock(localHost)
+//       .delete(apiPath)
+//       .reply(200)
+
+//     const result = await api.deleteOneArt(1)
+//     expect(result).toStrictEqual(200)
+//     expect(scope.isDone()).toBeTruthy()
+//   })
+// })
