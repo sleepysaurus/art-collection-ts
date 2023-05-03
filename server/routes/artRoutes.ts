@@ -9,7 +9,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   selectAllArt()
     .then((art) => {
-      res.json(art)
+      return res.json(art)
     })
     .catch((err) => {
       console.log(err.message)
@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
       if (art == null) {
         res.sendStatus(404)
       } else {
-        res.json(art)
+        return res.json(art)
       }
     })
     .catch((err) => {

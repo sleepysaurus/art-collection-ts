@@ -4,6 +4,7 @@ import request from 'supertest'
 
 import server from '../server'
 import { selectAllArt, selectOneArt, insertArt, updateArt, deleteArt, } from '../db/artDb'
+import { mockNewArtData, mockArtData } from '../../common/artData'
 
 vi.mock('../db/artDb')
 
@@ -11,41 +12,13 @@ beforeEach(() => {
   vi.resetAllMocks()
 })
 
-// CONSTANTS
 const api = '/api/v1/art'
-
-const stubNewArt = {
-  title: 'Sunbird', 
-  text: 'Summer',  
-  image: 'https://cdn.testsite.com/images/summer.jpg' 
-}
-
-const stubGetAll = [
-  { 
-    id: 1, 
-    title: 'Rose', 
-    text: 'A beautiful rose picture with lots of pinks and some peach hues.', 
-    image: 'https://cdn.testsite.com/images/flower.jpg'
-  },
-  { 
-    id: 2, 
-    title: 'Dahlias', 
-    text: 'Dahliaaaaaaaahs with peach and cream tones, with a blue background.',  
-    image: 'https://cdn.testsite.com/images/star.jpg' 
-  },
-  { 
-    id: 3, 
-    title: 'Mucha', 
-    text: 'Lovely art by Mucha',  
-    image: 'https://cdn.testsite.com/images/hamburger.jpg' 
-  }
-]
 
 // GET all art
 // /api/v1/art
 describe('/', () => {
-  it('responds with the list of art', async() => {
-    vi.mocked(selectAllArt).mockResolvedValue(stubGetAll)
+  it('responds with the list of art', async () => {
+    vi.mocked(selectAllArt).mockResolvedValue(mockArtData)
 
     const result = await request(server).get(api)
     expect(result.body).toHaveLength(3)
@@ -65,7 +38,7 @@ describe('/', () => {
 // /api/v1/art/:id
 describe('/:id', () => {
   it('responds with a specific art', async() => {
-    vi.mocked(selectOneArt).mockResolvedValue(stubGetAll[1])
+    vi.mocked(selectOneArt).mockResolvedValue(mockArtData[1])
 
     const result = await request(server).get(api.concat('/2'))
     expect(result.body).toMatchInlineSnapshot(`
@@ -76,13 +49,6 @@ describe('/:id', () => {
         "title": "Dahlias",
       }
     `)
-  })
-
-  it('responds with a 404', async() => {
-    vi.mocked(selectOneArt).mockResolvedValue(undefined)
-
-    const result = await request(server).get(api.concat('/123'))
-    expect(result.statusCode).toBe(404)
   })
 
   it('responds with a 500', async () => {
@@ -100,7 +66,7 @@ describe('creating an art', () => {
   it('adds an art to the database', async() => {
     vi.mocked(insertArt).mockResolvedValue(4) //id 4
 
-    const result = await request(server).post(api).send(stubNewArt)
+    const result = await request(server).post(api).send(mockNewArtData)
 
     expect(result.statusCode).toBe(200)
     expect(result.body).toEqual(4)

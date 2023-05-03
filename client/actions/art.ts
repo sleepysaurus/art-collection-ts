@@ -1,6 +1,6 @@
 import type { ThunkAction } from '../store'
 import { Art, DBArt } from '../../common/art'
-import { getAllArt, getOneArt, postOneArt, patchOneArt, deleteOneArt } from '../apis'
+import { getAllArt, getOneArt, postOneArt, patchOneArt, deleteOneArt } from '../apis/art'
 
 export const SHOW_ALL_ART = 'SHOW_ALL_ART'
 export const SHOW_ONE_ART = 'SHOW_ONE_ART'
@@ -57,7 +57,7 @@ export function deleteArt(id: number): ArtAction{
 // THUNK ACTIONS
 // Get all
 export function getArtThunk(): ThunkAction {
-  return (dispatch) => {
+  return async (dispatch) => {
     getAllArt()
       .then((art) => {
         dispatch(showAllArt(art))
@@ -70,7 +70,7 @@ export function getArtThunk(): ThunkAction {
 
 // READ: Get one art
 export function getOneArtThunk(id: number) : ThunkAction {
-  return (dispatch) => {
+  return async (dispatch) => {
     getOneArt(id)
       .then((oneArt) => {
         dispatch(showOneArt(oneArt))
@@ -83,7 +83,7 @@ export function getOneArtThunk(id: number) : ThunkAction {
 
 // CREATE: one art
 export function saveArtThunk(art: DBArt) : ThunkAction {
-  return (dispatch) => {
+  return async (dispatch) => {
     postOneArt(art)
       .then(()=>{
         // Save art will show added art
@@ -97,7 +97,7 @@ export function saveArtThunk(art: DBArt) : ThunkAction {
 
 // UPDATE: one art
 export function updateArtThunk(art: DBArt) : ThunkAction {
-  return (dispatch) => {
+  return async (dispatch) => {
     patchOneArt(art)
       .then(()=>{
         dispatch(updateArt(art))
@@ -110,7 +110,7 @@ export function updateArtThunk(art: DBArt) : ThunkAction {
 
 // DELETE: one art 
 export function removeArt(id: number) : ThunkAction {
-  return (dispatch) => {
+  return async (dispatch) => {
     deleteOneArt(id)
       .then(() => {
         dispatch(deleteArt(id))
