@@ -4,6 +4,13 @@ export const mockNewArtData = {
   image: 'https://cdn.testsite.com/images/summer.jpg' 
 }
 
+export const mockUpdateArtData = {
+  id: 1, 
+  title: 'Bouquet of Roses', 
+  text: 'A lot of flowers', 
+  image: 'https://cdn.testsite.com/images/flower.jpg'
+}
+
 export const mockArtData = [
   { 
     id: 1, 

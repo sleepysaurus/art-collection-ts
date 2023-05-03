@@ -17,7 +17,7 @@ const api = '/api/v1/art'
 // GET all art
 // /api/v1/art
 describe('/', () => {
-  it('responds with the list of art', async() => {
+  it('responds with the list of art', async () => {
     vi.mocked(selectAllArt).mockResolvedValue(mockArtData)
 
     const result = await request(server).get(api)

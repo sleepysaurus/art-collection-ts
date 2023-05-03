@@ -11,7 +11,7 @@ export function getAllArt() {
       return res.body
     })
     .catch((err)=> {
-      throw new Error(`There was an error getting the list of art: ${err.message}`)
+      return new Error(`There was an error getting the list of art: ${err.message}`)
     })
 }
 
@@ -22,7 +22,8 @@ export function getOneArt(id: number) {
       return res.body
     })
     .catch((err)=> {
-      throw new Error(`There was an error getting an artwork: ${err.message}`)
+      console.log(err.message)
+      //return new Error(`There was an error getting an artwork: ${err.message}`)
     })
 }
 
@@ -34,7 +35,7 @@ export function postOneArt(art: DBArt) {
       return res.body
     })
     .catch((err)=> {
-      throw new Error(`There was an error creating an artwork: ${err.message}`)
+      return new Error(`There was an error creating an artwork: ${err.message}`)
     })
 }
 
@@ -46,7 +47,7 @@ export function patchOneArt(art: DBArt) {
       return res.statusCode
     })
     .catch((err)=> {
-      throw new Error(`There was an error updating an artwork: ${err.message}`)
+      return new Error(`There was an error updating an artwork: ${err.message}`)
     })
 }
 
@@ -57,6 +58,6 @@ export function deleteOneArt(id: number) {
       return "Deleted"
     })
     .catch((err)=> {
-      throw new Error(`There was an error deleting an artwork: ${err.message}`)
+      return new Error(`There was an error deleting an artwork: ${err.message}`)
     })
 }
