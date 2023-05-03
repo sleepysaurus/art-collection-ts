@@ -27,12 +27,14 @@ describe('all', () => {
     expect(scope.isDone()).toBeTruthy()
   })
 
-  it('fails if the server fails', async () => {
+  it('responds with a 500 error if the server fails', async () => {
     const scope = nock(localHost)
       .get(apiPath)
       .reply(500)
 
-    const result = await api.getAllArt()
+    const result =  api.getAllArt()
+    const expected = new Error('Internal Server Error')
+    await expect(result).rejects.toEqual(expected)
     // expect(result).mockRejectedValue(new Error('There was an error getting the list of art: Internal Server Error'))
     expect(scope.isDone()).toBeTruthy()
   })
