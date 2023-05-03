@@ -69,3 +69,10 @@ describe('adds an art', () => {
 
 // PATCH an art
 // /api/v1/art
+// describe('updating an art', () => {
+//   it('updates the property values of one art'), async () => {
+//     const scope = nock(localHost)
+//       .patch(apiPath)
+//       .reply(200, )
+//   }
+// })

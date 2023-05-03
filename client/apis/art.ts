@@ -2,7 +2,7 @@ import request from 'superagent'
 
 import { DBArt } from '../../common/art'
 
-const apiPath = '/apiPath/v1/art/'
+const apiPath = '/api/v1/art/'
 
 // GET all art
 export function getAllArt() {
@@ -12,6 +12,7 @@ export function getAllArt() {
     })
     .catch((err)=> {
       console.log(err.message)
+      throw new Error(`There was an error getting the list of art: ${err.message}`)
     })
 }
 
@@ -23,6 +24,7 @@ export function getOneArt(id: number) {
     })
     .catch((err)=> {
       console.log(err.message)
+      throw new Error(`There was an error getting an artwork: ${err.message}`)
     })
 }
 
@@ -35,6 +37,7 @@ export function postOneArt(art: DBArt) {
     })
     .catch((err)=> {
       console.log(err.message)
+      throw new Error(`There was an error creating an artwork: ${err.message}`)
     })
 }
 
@@ -43,10 +46,11 @@ export function patchOneArt(art: DBArt) {
   return request.patch(apiPath)
     .send(art)
     .then((res) => {
-      return res.body
+      return res.statusCode
     })
     .catch((err)=> {
       console.log(err.message)
+      throw new Error(`There was an error updating an artwork: ${err.message}`)
     })
 }
 
@@ -58,5 +62,6 @@ export function deleteOneArt(id: number) {
     })
     .catch((err)=> {
       console.log(err.message)
+      throw new Error(`There was an error deleting an artwork: ${err.message}`)
     })
 }
