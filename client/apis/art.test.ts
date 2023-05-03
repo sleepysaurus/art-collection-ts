@@ -88,14 +88,14 @@ describe('PATCH an art', () => {
 })
 
 // // DELETE an art
-// describe('DELETE an art', () => {
-//   it('removes an art from the list of all art', async () => {
-//     const scope = nock(localHost)
-//       .delete(apiPath)
-//       .reply(200)
+describe('DELETE an art', () => {
+  it('removes an art from the list of all art', async () => {
+    const scope = nock(localHost)
+      .delete(apiPath.concat('1'))
+      .reply(200)
 
-//     const result = await api.deleteOneArt(1)
-//     expect(result).toStrictEqual(200)
-//     expect(scope.isDone()).toBeTruthy()
-//   })
-// })
+    const result = await api.deleteOneArt(1)
+    expect(result).toStrictEqual(200)
+    expect(scope.isDone()).toBeTruthy()
+  })
+})

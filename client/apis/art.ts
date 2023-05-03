@@ -53,8 +53,8 @@ export function patchOneArt(art: DBArt) {
 // DELETE one art
 export function deleteOneArt(id: number) {
   return request.delete(apiPath + id)
-    .then(() => {
-      return "Deleted"
+    .then((res) => {
+      return res.statusCode
     })
     .catch((err)=> {
       throw new Error(err.message)
