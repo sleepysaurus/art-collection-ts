@@ -66,3 +66,6 @@ describe('adds an art', () => {
     expect(scope.isDone()).toBeTruthy()
   }
 })
+
+// PATCH an art
+// /api/v1/art
