@@ -1,6 +1,6 @@
 import type { ThunkAction } from '../store'
 import { Art, DBArt } from '../../common/art'
-import { getAllArt, getOneArt, postOneArt, patchOneArt, deleteOneArt } from '../apis'
+import { getAllArt, getOneArt, postOneArt, patchOneArt, deleteOneArt } from '../apis/art'
 
 export const SHOW_ALL_ART = 'SHOW_ALL_ART'
 export const SHOW_ONE_ART = 'SHOW_ONE_ART'

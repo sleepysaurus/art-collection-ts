@@ -2,11 +2,11 @@ import request from 'superagent'
 
 import { DBArt } from '../../common/art'
 
-const artUrl = '/api/v1/art/'
+const apiPath = '/apiPath/v1/art/'
 
 // GET all art
 export function getAllArt() {
-  return request.get(artUrl)
+  return request.get(apiPath)
     .then((res) => {
       return res.body
     })
@@ -17,7 +17,7 @@ export function getAllArt() {
 
 // GET one art
 export function getOneArt(id: number) {
-  return request.get(artUrl + id)
+  return request.get(apiPath + id)
     .then((res) => {
       return res.body
     })
@@ -28,7 +28,7 @@ export function getOneArt(id: number) {
 
 // POST an art
 export function postOneArt(art: DBArt) {
-  return request.post(artUrl)
+  return request.post(apiPath)
     .send(art)
     .then((res) => {
       return res.body
@@ -40,7 +40,7 @@ export function postOneArt(art: DBArt) {
 
 // PATCH an art
 export function patchOneArt(art: DBArt) {
-  return request.patch(artUrl)
+  return request.patch(apiPath)
     .send(art)
     .then((res) => {
       return res.body
@@ -52,7 +52,7 @@ export function patchOneArt(art: DBArt) {
 
 // DELETE one art
 export function deleteOneArt(id: number) {
-  return request.delete(artUrl + id)
+  return request.delete(apiPath + id)
     .then(() => {
       return "Deleted"
     })
