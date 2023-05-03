@@ -35,7 +35,6 @@ describe('all', () => {
     const result =  api.getAllArt()
     const expected = new Error('Internal Server Error')
     await expect(result).rejects.toEqual(expected)
-    // expect(result).mockRejectedValue(new Error('There was an error getting the list of art: Internal Server Error'))
     expect(scope.isDone()).toBeTruthy()
   })
 })
@@ -70,13 +69,25 @@ describe('adds an art', () => {
 
 // PATCH an art
 // /api/v1/art
-// describe('updating an art', () => {
-//   it('updates the property values of one art', async () => {
-//     const scope = nock(localHost)
-//       .patch(apiPath)
-//       .reply(200)
+describe('updating an art', () => {
+  it('updates the values of one art', async () => {
+    const scope = nock(localHost)
+      .patch(apiPath)
+      .reply(200)
 
-//     const result = await api.patchOneArt(mockUpdateArtData)
-//     expect(result).toStrictEqual(mockUpdateArtData)
-//   })
-// })
+    const result = await api.patchOneArt(mockUpdateArtData)
+    expect(result).toStrictEqual(200)
+    expect(scope.isDone()).toBeTruthy()
+  })
+
+  it('responds with a 500 error if the server fails', async () => {
+    const scope = nock(localHost)
+      .patch(apiPath)
+      .reply(500)
+
+    const result = api.patchOneArt(mockUpdateArtData)
+    const expected = new Error('Internal Server Error')
+    await expect(result).rejects.toEqual(expected)
+    expect(scope.isDone()).toBeTruthy()
+  })
+})
