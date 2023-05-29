@@ -1,5 +1,4 @@
 import conn from './connection'
-
 import  { DBArt } from '../../common/art'
 
 const ART_TABLE = 'art'
