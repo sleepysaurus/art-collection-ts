@@ -48,9 +48,9 @@ describe('Art DB', () => {
       expect(result).toMatchInlineSnapshot(`
       {
         "id": 2,
-        "image": 'https://cdn1.bigcommerce.com/n-ww20x/azetto/products/850/images/3612/6_square_dahlia_HOPE_closeup__71814.1589944049.1280.1280.jpg?c=2',
-        "text": 'Dahliaaaaaaaahs with peach and cream tones, with a blue background.',
-        "title": 'Dahlias',
+        "image": "https://cdn1.bigcommerce.com/n-ww20x/azetto/products/850/images/3612/6_square_dahlia_HOPE_closeup__71814.1589944049.1280.1280.jpg?c=2",
+        "text": "Dahliaaaaaaaahs with peach and cream tones, with a blue background.",
+        "title": "Dahlias",
       }
       `)
     })
